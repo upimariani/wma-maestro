@@ -73,9 +73,9 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?= base_url('Admin/cLaporan') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cLaporan') {
-																					echo 'active';
-																				}  ?>">
+					<a href="<?= base_url('Admin/cTransaksiReseller') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cTransaksiReseller') {
+																								echo 'active';
+																							}  ?>">
 						<i class="nav-icon fas fa-truck-loading"></i>
 						<p>Transaksi Reseller</p>
 					</a>

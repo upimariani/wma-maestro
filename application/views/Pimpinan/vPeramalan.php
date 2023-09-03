@@ -5,23 +5,17 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>User</h1>
-
+					<h1>Peramalan</h1>
 				</div>
-
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">DataTables</li>
+						<li class="breadcrumb-item active">Barang</li>
 					</ol>
 				</div>
-
 			</div>
-
 		</div><!-- /.container-fluid -->
-		<a href="<?= base_url('Admin/cUser/createUser') ?>" class="btn btn-app">
-			<i class="fas fa-plus"></i> Tambah User
-		</a>
+
 		<?php
 		if ($this->session->userdata('success')) {
 		?>
@@ -42,7 +36,7 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Informasi User</h3>
+							<h3 class="card-title">Informasi Barang</h3>
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
@@ -50,37 +44,33 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Nama User</th>
-										<th>Alamat User</th>
-										<th>No Telepon</th>
-										<th>Username</th>
-										<th>Password</th>
-										<th>Level User</th>
+										<th>Gambar</th>
+										<th>Kategori</th>
+										<th>Nama Barang</th>
+										<th>Deskripsi</th>
+										<th>Harga</th>
 										<th class="text-center">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									$no = 1;
-									foreach ($user as $key => $value) {
+									foreach ($barang as $key => $value) {
 									?>
 										<tr>
 											<td><?= $no++ ?></td>
-											<td><?= $value->nama_user ?></td>
-											<td><?= $value->alamat_user ?></td>
-											<td><?= $value->no_hp_user ?></td>
-											<td><?= $value->username ?></td>
-											<td><?= $value->password ?></td>
-											<td><?php if ($value->level_user == '1') {
-													echo '<span class="badge badge-warning">Admin</span>';
-												} else {
-													echo '<span class="badge badge-danger">Pimpinan</span>';
-												} ?></td>
-											<td class="text-center"> <a href="<?= base_url('Admin/cUser/delete/' . $value->id_user) ?>" class="btn btn-app">
-													<i class="fas fa-trash"></i> Hapus User
-												</a> <a href="<?= base_url('Admin/cUser/edit/' . $value->id_user) ?>" class="btn btn-app">
-													<i class="fas fa-edit"></i> Edit User
-												</a></td>
+											<td>
+												<img style="width: 150px;" src="<?= base_url('asset/foto-produk/' . $value->gambar) ?>">
+
+											</td>
+											<td><?= $value->nama_kategori ?></td>
+											<td><?= $value->nama_barang ?></td>
+											<td><?= $value->deskripsi ?></td>
+											<td>Rp. <?= number_format($value->harga_supplier)  ?></td>
+
+											<td class="text-center"> <a href="<?= base_url('Pimpinan/cPeramalan/detail_peramalan/' . $value->id_jenis) ?>" class="btn btn-app">
+													<i class="fas fa-info"></i> Peramalan
+												</a> </td>
 										</tr>
 									<?php
 									}
@@ -89,12 +79,11 @@
 								<tfoot>
 									<tr>
 										<th>No</th>
-										<th>Nama User</th>
-										<th>Alamat User</th>
-										<th>No Telepon</th>
-										<th>Username</th>
-										<th>Password</th>
-										<th>Level User</th>
+										<th>Gambar</th>
+										<th>Kategori</th>
+										<th>Nama Barang</th>
+										<th>Deskripsi</th>
+										<th>Harga</th>
 										<th class="text-center">Action</th>
 									</tr>
 								</tfoot>

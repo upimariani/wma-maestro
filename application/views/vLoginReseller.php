@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>LOGIN SUPPLIER</title>
+	<title>LOGIN RESELLER</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="../../index2.html"><b>LOGIN</b>SUPPLIER</a>
+			<a href="../../index2.html"><b>LOGIN</b>RESELLER</a>
 		</div>
 
 		<?php if ($this->session->userdata('success')) {
@@ -51,7 +51,7 @@
 			<div class="card-body login-card-body">
 				<p class="login-box-msg">Sign in to start your session</p>
 
-				<form action="<?= base_url('cLoginSupplier') ?>" method="post">
+				<form action="<?= base_url('cLoginReseller') ?>" method="post">
 					<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
 					<div class="input-group mb-3">
 						<input type="text" name="username" value="<?= set_value('username') ?>" class="form-control" placeholder="Username">
@@ -61,6 +61,7 @@
 							</div>
 						</div>
 					</div>
+
 					<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
 					<div class="input-group mb-3">
 						<input type="password" name="password" class="form-control" placeholder="Password">
@@ -70,16 +71,23 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="row ">
 						<!-- /.col -->
-						<div class="col-12 mt-3">
+						<div class="col-12 mt-5">
 							<button type="submit" class="btn btn-primary btn-block">Sign In</button>
 						</div>
 						<!-- /.col -->
 					</div>
 				</form>
 
+				<div class="social-auth-links text-center mb-3">
+					<p>- OR -</p>
 
+					<a href="<?= base_url('cLoginReseller/register') ?>" class="btn btn-block btn-danger">
+						Register Reseller
+					</a>
+				</div>
 			</div>
 			<!-- /.login-card-body -->
 		</div>

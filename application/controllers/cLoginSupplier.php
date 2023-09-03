@@ -27,18 +27,12 @@ class cLoginSupplier extends CI_Controller
 			if ($login) {
 				$username = $login->username_supp;
 				$id = $login->id_supplier;
-
-
 				$array = array(
 					'id' => $id
 				);
-
 				$this->session->set_userdata($array);
-
-
 				$this->ci->session->set_userdata('username', $username);
 				$this->session->set_flashdata('success', 'Selamat Datang, ', $username);
-
 				redirect(base_url('Supplier/cDashboard'));
 			} else {
 				$this->session->set_flashdata('error', 'Username dan Password Salah!!!');
@@ -48,9 +42,9 @@ class cLoginSupplier extends CI_Controller
 	}
 	public function logout()
 	{
+		$this->cart->destroy();
 		$this->ci->session->unset_userdata('username');
 		$this->session->set_flashdata('success', 'Anda Berhasil LogOut!');
-
 		redirect('cLoginSupplier');
 	}
 	public function protect()

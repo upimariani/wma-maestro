@@ -52,7 +52,8 @@
 				<p class="login-box-msg">Sign in to start your session</p>
 
 				<form action="<?= base_url('cLogin') ?>" method="post">
-					<div class="input-group mb-1">
+					<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
+					<div class="input-group mb-3">
 						<input type="text" name="username" value="<?= set_value('username') ?>" class="form-control" placeholder="Username">
 						<div class="input-group-append">
 							<div class="input-group-text">
@@ -60,9 +61,9 @@
 							</div>
 						</div>
 					</div>
-					<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
 
-					<div class="input-group mb-1">
+					<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+					<div class="input-group mb-3">
 						<input type="password" name="password" class="form-control" placeholder="Password">
 						<div class="input-group-append">
 							<div class="input-group-text">
@@ -70,10 +71,10 @@
 							</div>
 						</div>
 					</div>
-					<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+
 					<div class="row ">
 						<!-- /.col -->
-						<div class="col-12 mt-5">
+						<div class="col-12 mt-3">
 							<button type="submit" class="btn btn-primary btn-block">Sign In</button>
 						</div>
 						<!-- /.col -->

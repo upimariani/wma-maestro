@@ -77,7 +77,7 @@
 										<select class="form-control" name="type">
 											<option value="">---Pilih Type User---</option>
 											<option value="1">Admin</option>
-											<option value="2">Gudang</option>
+											<option value="2">Pimpinan</option>
 										</select>
 										<?= form_error('type', '<small class="text-danger">', '</small>') ?>
 									</div>

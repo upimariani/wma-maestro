@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2023 at 04:55 AM
+-- Generation Time: Sep 03, 2023 at 05:07 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -21,6 +21,37 @@ SET time_zone = "+00:00";
 --
 -- Database: `wma-maestro`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_dummy`
+--
+
+CREATE TABLE `data_dummy` (
+  `id_dummy` int(11) NOT NULL,
+  `periode` varchar(125) NOT NULL,
+  `permintaan` int(11) NOT NULL,
+  `forecast` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_dummy`
+--
+
+INSERT INTO `data_dummy` (`id_dummy`, `periode`, `permintaan`, `forecast`) VALUES
+(1, 'November', 3250, 0),
+(2, 'Desember', 3240, 0),
+(3, 'Januari', 3250, 0),
+(4, 'Februari', 3260, 0),
+(5, 'Maret', 3260, 0),
+(6, 'April', 3250, 0),
+(7, 'Mei', 3260, 0),
+(8, 'Juni', 3250, 0),
+(9, 'Juli', 3120, 0),
+(10, 'Agustus', 3019, 0),
+(11, 'September', 3112, 0),
+(12, 'Oktober', 3240, 0);
 
 -- --------------------------------------------------------
 
@@ -48,7 +79,6 @@ CREATE TABLE `jenis_barang` (
 --
 
 INSERT INTO `jenis_barang` (`id_jenis`, `id_kategori`, `id_supplier`, `nama_barang`, `deskripsi`, `harga_supplier`, `stok_supplier`, `harga_gudang`, `stok_gudang`, `stok_minimal`, `gambar`, `type`) VALUES
-(1, 2, 2, 'HVS Sidu', 'Kertas HVS Putih Ukuran A4. Isi 500 lembar', '54000', 129, NULL, NULL, 0, 'clipboard-2693417_1280.jpg', 2),
 (2, 2, 2, 'Art Paper', 'Kertas Gambar Sketsa Ukuran A5. Isi 100 lembar', '54000', 120, NULL, NULL, 0, 'paper-3204064_1280.jpg', 2),
 (3, 2, 2, 'Matte Paper', 'Kertas Origami. Ukuran A3. Isi 50 lembar', '21000', 120, NULL, NULL, 0, 'origami-210037_1280.jpg', 2),
 (4, 2, 2, 'Art Carton', 'Kertas karton satuan', '5000', 200, NULL, NULL, 0, 'christmas-3005798_1280.jpg', 2),
@@ -104,6 +134,13 @@ CREATE TABLE `po_barang` (
   `alamat_kirim_bar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `po_barang`
+--
+
+INSERT INTO `po_barang` (`id_po_bar`, `id_reseller`, `tgl_tran_bar`, `tot_bay_bar`, `stat_bay_bar`, `bukti_bay_bar`, `stat_order_bar`, `alamat_kirim_bar`) VALUES
+(1, 1, '2023-09-03', '41500', 1, 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-1.jpg', 4, 'Jln. Siliwangi');
+
 -- --------------------------------------------------------
 
 --
@@ -142,6 +179,14 @@ CREATE TABLE `po_dbarang` (
   `qty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `po_dbarang`
+--
+
+INSERT INTO `po_dbarang` (`id_po_dbar`, `id_po_bar`, `id_jenis`, `qty`) VALUES
+(1, 1, 15, 1),
+(2, 1, 14, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -174,9 +219,16 @@ CREATE TABLE `reseller` (
   `alamat_reseller` text NOT NULL,
   `no_hp_reseller` varchar(15) NOT NULL,
   `jk` varchar(20) NOT NULL,
-  `username_supplier` varchar(50) NOT NULL,
+  `username_reseller` varchar(50) NOT NULL,
   `password_reseller` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reseller`
+--
+
+INSERT INTO `reseller` (`id_reseller`, `nama_reseller`, `alamat_reseller`, `no_hp_reseller`, `jk`, `username_reseller`, `password_reseller`) VALUES
+(1, 'Reseller 1', 'Kuningan, Jawa Barat', '089987656543', 'Perempuan', 'reseller1', 'reseller1');
 
 -- --------------------------------------------------------
 
@@ -221,11 +273,18 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `alamat_user`, `no_hp_user`, `username`, `password`, `level_user`) VALUES
-(1, 'Admin', 'Kuningan', '089987654543', 'admin', 'admin', 1);
+(1, 'Admin', 'Kuningan', '089987654543', 'admin', 'admin', 1),
+(3, 'Pimpinan', 'Kuningan, Jawa Barat', '089987654543', 'pimpinan', 'pimpinan', 2);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `data_dummy`
+--
+ALTER TABLE `data_dummy`
+  ADD PRIMARY KEY (`id_dummy`);
 
 --
 -- Indexes for table `jenis_barang`
@@ -286,6 +345,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `data_dummy`
+--
+ALTER TABLE `data_dummy`
+  MODIFY `id_dummy` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `jenis_barang`
 --
 ALTER TABLE `jenis_barang`
@@ -301,7 +366,7 @@ ALTER TABLE `kategori_barang`
 -- AUTO_INCREMENT for table `po_barang`
 --
 ALTER TABLE `po_barang`
-  MODIFY `id_po_bar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_po_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `po_bb`
@@ -313,7 +378,7 @@ ALTER TABLE `po_bb`
 -- AUTO_INCREMENT for table `po_dbarang`
 --
 ALTER TABLE `po_dbarang`
-  MODIFY `id_po_dbar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_po_dbar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `po_dbb`
@@ -325,7 +390,7 @@ ALTER TABLE `po_dbb`
 -- AUTO_INCREMENT for table `reseller`
 --
 ALTER TABLE `reseller`
-  MODIFY `id_reseller` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reseller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `supplier`
@@ -337,7 +402,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -24,6 +24,20 @@ class mLogin extends CI_Model
 		));
 		return $this->db->get()->row();
 	}
+	public function auth_reseller($username, $password)
+	{
+		$this->db->select('*');
+		$this->db->from('reseller');
+		$this->db->where(array(
+			'username_reseller' => $username,
+			'password_reseller' => $password
+		));
+		return $this->db->get()->row();
+	}
+	public function registerreseller($data)
+	{
+		$this->db->insert('reseller', $data);
+	}
 }
 
 /* End of file mLogin.php */
