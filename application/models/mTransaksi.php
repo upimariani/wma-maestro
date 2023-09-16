@@ -9,6 +9,9 @@ class mTransaksi extends CI_Model
 		$this->db->select('*');
 		$this->db->from('po_bb');
 		$this->db->join('supplier', 'po_bb.id_supplier = supplier.id_supplier', 'left');
+
+		$this->db->order_by('tgl_transaksi', 'desc');
+
 		return $this->db->get()->result();
 	}
 	public function bahanbaku($id)

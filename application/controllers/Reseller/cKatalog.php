@@ -64,6 +64,16 @@ class cKatalog extends CI_Controller
 			);
 			$this->mKatalog->po_dbar($pesanan);
 		}
+
+		//update stok
+		foreach ($this->cart->contents() as $key => $value) {
+			$stok_update = $value['stok'] - $value['qty'];
+			$data_stok = array(
+				'stok_gudang' => $stok_update
+			);
+			$this->db->where('id_jenis', $value['id']);
+			$this->db->update('jenis_barang', $data_stok);
+		}
 		$this->cart->destroy();
 		$this->session->set_flashdata('success', 'Transaksi berhasil Dikirim!');
 		redirect('Reseller/cTransaksi');
