@@ -38,46 +38,59 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>1.</td>
-										<td>Update software</td>
-										<td>
-											<div class="progress progress-xs">
-												<div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-											</div>
-										</td>
-										<td><span class="badge bg-danger">55%</span></td>
-									</tr>
-									<tr>
-										<td>2.</td>
-										<td>Clean database</td>
-										<td>
-											<div class="progress progress-xs">
-												<div class="progress-bar bg-warning" style="width: 70%"></div>
-											</div>
-										</td>
-										<td><span class="badge bg-warning">70%</span></td>
-									</tr>
-									<tr>
-										<td>3.</td>
-										<td>Cron job running</td>
-										<td>
-											<div class="progress progress-xs progress-striped active">
-												<div class="progress-bar bg-primary" style="width: 30%"></div>
-											</div>
-										</td>
-										<td><span class="badge bg-primary">30%</span></td>
-									</tr>
-									<tr>
-										<td>4.</td>
-										<td>Fix and squish bugs</td>
-										<td>
-											<div class="progress progress-xs progress-striped active">
-												<div class="progress-bar bg-success" style="width: 90%"></div>
-											</div>
-										</td>
-										<td><span class="badge bg-success">90%</span></td>
-									</tr>
+									<?php
+									$no = 1;
+									foreach ($periode as $key => $value) {
+									?>
+										<tr>
+											<td><?= $no++ ?>.</td>
+											<td><?php
+												if ($value->bulan == '1') {
+													echo 'Januari ';
+												} else if ($value->bulan == '2') {
+													echo 'Februari ';
+												} else if ($value->bulan == '3') {
+													echo 'Maret ';
+												} else if ($value->bulan == '4') {
+													echo 'April ';
+												} else if ($value->bulan == '5') {
+													echo 'Mei ';
+												} else if ($value->bulan == '6') {
+													echo 'Juni ';
+												} else if ($value->bulan == '7') {
+													echo 'Juli ';
+												} else if ($value->bulan == '8') {
+													echo 'Agustus ';
+												} else if ($value->bulan == '9') {
+													echo 'September ';
+												} else if ($value->bulan == '10') {
+													echo 'Oktober ';
+												} else if ($value->bulan == '11') {
+													echo 'November ';
+												} else if ($value->bulan == '12') {
+													echo 'Desember ';
+												}
+												?></td>
+											<td><?= $value->qty ?></td>
+											<?php
+											$forecast = $this->db->query("SELECT SUM(qty) as qty, id_jenis, MONTH(tgl_transaksi) as bulan FROM `po_bb` JOIN po_dbb ON po_bb.id_po_bb=po_dbb.id_po_dbb WHERE id_jenis='$value->id_jenis' AND MONTH(tgl_transaksi) < '$value->bulan' GROUP BY id_jenis, MONTH(tgl_transaksi) ORDER BY MONTH(tgl_transaksi) DESC LIMIT 3")->result();
+											$hasil = 0;
+											$bobot = 3;
+											foreach ($forecast as $key => $item) {
+												$hasil += (($item->qty * $bobot--) / 6);
+											}
+											if ($value->bulan > 3) {
+											?>
+												<td><span class="badge bg-danger"><?= round($hasil, 2) ?></span></td>
+											<?php
+											}
+											?>
+
+										</tr>
+									<?php
+									}
+									?>
+
 								</tbody>
 							</table>
 						</div>

@@ -20,12 +20,14 @@ class cPeramalan extends CI_Controller
 		$this->load->view('Pimpinan/vPeramalan', $data);
 		$this->load->view('Pimpinan/Layout/footer');
 	}
-	public function detail_peramalan()
+	public function detail_peramalan($id_bb)
 	{
-
+		$data = array(
+			'periode' => $this->mPeramalan->periode($id_bb)
+		);
 		$this->load->view('Pimpinan/Layout/head');
 		$this->load->view('Pimpinan/Layout/aside');
-		$this->load->view('Pimpinan/vDetailPeramalan');
+		$this->load->view('Pimpinan/vDetailPeramalan', $data);
 		$this->load->view('Pimpinan/Layout/footer');
 	}
 }

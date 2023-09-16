@@ -72,12 +72,21 @@
 						<p>Pemesanan Bahan Baku</p>
 					</a>
 				</li>
+				<?php
+				$data = $this->db->query("SELECT COUNT(id_po_bar) as jml FROM `po_barang` WHERE stat_order_bar !='4'")->row();
+				?>
 				<li class="nav-item">
 					<a href="<?= base_url('Admin/cTransaksiReseller') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cTransaksiReseller') {
 																								echo 'active';
 																							}  ?>">
 						<i class="nav-icon fas fa-truck-loading"></i>
-						<p>Transaksi Reseller</p>
+						<p>Transaksi Reseller
+							<?php
+							if ($data->jml != '0') {
+							?><span class="badge bg-warning"><?= $data->jml ?></span>
+							<?php
+							}
+							?></p>
 					</a>
 				</li>
 				<li class="nav-item">
