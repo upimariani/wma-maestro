@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2023 at 02:25 PM
+-- Generation Time: Oct 03, 2023 at 02:41 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -88,8 +88,8 @@ INSERT INTO `jenis_barang` (`id_jenis`, `id_kategori`, `id_supplier`, `nama_bara
 (7, 2, 2, 'Duplex', 'Kertas Duplex', '18000', 120, NULL, NULL, 0, 'paper.jpg', 2),
 (8, 2, 2, 'Kalkir', 'Kertas Kalkir', '12000', 120, NULL, NULL, 0, 'paper.jpg', 2),
 (9, 2, 2, 'Mika', 'Mika', '5000', 120, NULL, NULL, 0, 'paper.jpg', 2),
-(10, 2, 2, 'Hot Melt Glue', 'Lem', '5000', 120, NULL, NULL, 0, 'paper.jpg', 2),
-(11, 2, 2, 'Jelly Glue', 'Lem Kertas', '6000', 120, NULL, NULL, 0, 'paper.jpg', 2),
+(10, 3, 2, 'Hot Melt Glue', 'Lem', '5000', 120, '5000', 120, 0, 'paper.jpg', 2),
+(11, 3, 2, 'Jelly Glue', 'Lem Kertas', '6000', 120, '6000', 120, 0, 'paper.jpg', 2),
 (12, 2, 0, 'Undangan', 'Undangan Pernikahan', NULL, NULL, '10000', 103, 0, 'paper1.jpg', 1);
 
 -- --------------------------------------------------------
@@ -111,9 +111,7 @@ INSERT INTO `kategori_barang` (`id_kategori`, `nama_kategori`) VALUES
 (2, 'Kertas'),
 (3, 'Bahan Lem'),
 (4, 'Bahan Banner'),
-(5, 'Bahan Stempel'),
-(6, 'Bahan Tinta'),
-(7, 'Bahan Lain - Lainnya');
+(6, 'Bahan Tinta');
 
 -- --------------------------------------------------------
 

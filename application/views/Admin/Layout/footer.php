@@ -61,13 +61,24 @@
   			"autoWidth": false,
   		});
   		$('#example2').DataTable({
-  			"paging": true,
-  			"lengthChange": false,
-  			"searching": false,
-  			"ordering": true,
-  			"info": true,
-  			"autoWidth": false,
   			"responsive": true,
+  			"autoWidth": false,
+  		});
+  		$('#example3').DataTable({
+  			"responsive": true,
+  			"autoWidth": false,
+  		});
+  		$('#example4').DataTable({
+  			"responsive": true,
+  			"autoWidth": false,
+  		});
+  		$('#example5').DataTable({
+  			"responsive": true,
+  			"autoWidth": false,
+  		});
+  		$('.example1').DataTable({
+  			"responsive": true,
+  			"autoWidth": false,
   		});
   	});
   </script>

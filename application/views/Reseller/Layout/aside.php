@@ -32,12 +32,15 @@
 						<p>Katalog</p>
 					</a>
 				</li>
+				<?php
+				$notif = $this->db->query("SELECT COUNT(id_po_bar) as jml FROM `po_barang` WHERE id_reseller='" . $this->session->userdata('id_reseller') . "' AND stat_order_bar='0'")->row();
+				?>
 				<li class="nav-item">
 					<a href="<?= base_url('Reseller/cTransaksi') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Reseller' && $this->uri->segment(2) == 'cTransaksi') {
 																							echo 'active';
 																						}  ?>">
 						<i class="nav-icon fas fa-tag"></i>
-						<p>Pemesanan</p>
+						<p>Pemesanan <span class="badge badge-danger"><?= $notif->jml ?></span></p>
 					</a>
 				</li>
 				<li class="nav-item">

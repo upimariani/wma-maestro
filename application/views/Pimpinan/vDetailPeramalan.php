@@ -81,7 +81,7 @@
 											}
 											if ($value->bulan > 3) {
 											?>
-												<td><span class="badge bg-danger"><?= round($hasil, 2) ?></span></td>
+												<td><span class="badge bg-danger"><?= round($hasil) ?></span></td>
 											<?php
 											}
 											?>

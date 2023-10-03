@@ -40,12 +40,15 @@
 						<p>Data Barang</p>
 					</a>
 				</li>
+				<?php
+				$notif = $this->db->query("SELECT COUNT(id_po_bb) as jml FROM `po_bb` WHERE id_supplier='" . $this->session->userdata('id') . "' AND status_order='1'")->row();
+				?>
 				<li class="nav-item">
 					<a href="<?= base_url('Supplier/cTransaksi') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Supplier' && $this->uri->segment(2) == 'cTransaksi') {
 																							echo 'active';
 																						}  ?>">
 						<i class="nav-icon fas fa-shopping-cart"></i>
-						<p>Pemesanan Barang</p>
+						<p>Pemesanan Barang <span class="badge badge-warning"><?= $notif->jml ?></span></p>
 					</a>
 				</li>
 
