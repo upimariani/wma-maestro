@@ -82,6 +82,13 @@
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
+										<label for="exampleInputEmail1">Satuan Barang</label>
+										<input type="text" name="satuan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Satuan Barang">
+										<?= form_error('satuan', '<small class="text-danger">', '</small>') ?>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="form-group">
 										<label for="exampleInputEmail1">Gambar</label>
 										<input type="file" name="gambar" class="form-control" id="exampleInputEmail1" required>
 									</div>

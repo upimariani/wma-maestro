@@ -28,6 +28,9 @@ class cBarang extends CI_Controller
 		$this->form_validation->set_rules('harga', 'Harga Barang', 'required');
 		$this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
 		$this->form_validation->set_rules('stok', 'Stok Barang', 'required');
+		$this->form_validation->set_rules('satuan', 'Satuan Barang', 'required');
+
+
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = array(
@@ -59,6 +62,7 @@ class cBarang extends CI_Controller
 					'id_supplier' => $this->session->userdata('id'),
 					'nama_barang' => $this->input->post('nama'),
 					'deskripsi' => $this->input->post('deskripsi'),
+					'satuan' => $this->input->post('satuan'),
 					'stok_supplier' => $this->input->post('stok'),
 					'harga_supplier' => $this->input->post('harga'),
 					'gambar' => $upload_data['file_name'],
@@ -77,6 +81,8 @@ class cBarang extends CI_Controller
 		$this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
 		$this->form_validation->set_rules('harga', 'Harga produk', 'required');
 		$this->form_validation->set_rules('stok', 'Stok produk', 'required');
+		$this->form_validation->set_rules('satuan', 'Satuan Barang', 'required');
+
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = array(
@@ -112,6 +118,8 @@ class cBarang extends CI_Controller
 					'deskripsi' => $this->input->post('deskripsi'),
 					'stok_gudang' => $this->input->post('stok'),
 					'harga_gudang' => $this->input->post('harga'),
+					'satuan' => $this->input->post('satuan'),
+
 					'gambar' => $upload_data['file_name'],
 					'type' => '2'
 				);
@@ -125,6 +133,7 @@ class cBarang extends CI_Controller
 				'deskripsi' => $this->input->post('deskripsi'),
 				'stok_gudang' => $this->input->post('stok'),
 				'harga_gudang' => $this->input->post('harga'),
+				'satuan' => $this->input->post('satuan'),
 				'type' => '2'
 			);
 			$this->mBarang->update($id, $data);

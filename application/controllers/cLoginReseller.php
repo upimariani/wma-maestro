@@ -24,7 +24,7 @@ class cLoginReseller extends CI_Controller
 			$password = $this->input->post('password');
 			$login = $this->mLogin->auth_reseller($username, $password);
 			if ($login) {
-				$username = $login->username_supp;
+				$username = $login->nama_reseller;
 				$id = $login->id_reseller;
 
 
@@ -36,7 +36,7 @@ class cLoginReseller extends CI_Controller
 
 
 				$this->ci->session->set_userdata('username', $username);
-				$this->session->set_flashdata('success', 'Selamat Datang, ', $username);
+				$this->session->set_flashdata('success', 'Selamat Datang, ');
 
 				redirect(base_url('Reseller/cKatalog'));
 			} else {

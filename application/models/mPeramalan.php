@@ -17,7 +17,7 @@ class mPeramalan extends CI_Model
 
 	public function periode($id_bb)
 	{
-		return $this->db->query("SELECT SUM(qty) as qty, id_jenis, MONTH(tgl_transaksi) as bulan FROM `po_bb` JOIN po_dbb ON po_bb.id_po_bb=po_dbb.id_po_dbb WHERE id_jenis='" . $id_bb . "' GROUP BY id_jenis, MONTH(tgl_transaksi)")->result();
+		return $this->db->query("SELECT SUM(qty) as qty, po_dbb.id_jenis, MONTH(tgl_transaksi) as bulan, satuan FROM `po_bb` JOIN po_dbb ON po_bb.id_po_bb=po_dbb.id_po_dbb JOIN jenis_barang ON po_dbb.id_jenis=jenis_barang.id_jenis  WHERE po_dbb.id_jenis='" . $id_bb . "' GROUP BY po_dbb.id_jenis, MONTH(tgl_transaksi)")->result();
 	}
 }
 

@@ -71,7 +71,7 @@
 													echo 'Desember ';
 												}
 												?></td>
-											<td><?= $value->qty ?></td>
+											<td><?= $value->qty ?> <?= $value->satuan ?></td>
 											<?php
 											$forecast = $this->db->query("SELECT SUM(qty) as qty, id_jenis, MONTH(tgl_transaksi) as bulan FROM `po_bb` JOIN po_dbb ON po_bb.id_po_bb=po_dbb.id_po_dbb WHERE id_jenis='$value->id_jenis' AND MONTH(tgl_transaksi) < '$value->bulan' GROUP BY id_jenis, MONTH(tgl_transaksi) ORDER BY MONTH(tgl_transaksi) DESC LIMIT 3")->result();
 											$hasil = 0;
@@ -81,7 +81,7 @@
 											}
 											if ($value->bulan > 3) {
 											?>
-												<td><span class="badge bg-danger"><?= round($hasil) ?></span></td>
+												<td><span class="badge bg-danger"><?= round($hasil) ?> <?= $value->satuan ?></span></td>
 											<?php
 											}
 											?>

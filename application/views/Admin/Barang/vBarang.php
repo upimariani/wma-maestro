@@ -73,7 +73,7 @@
 											<td><?= $value->nama_kategori ?></td>
 											<td><?= $value->nama_barang ?></td>
 											<td><?= $value->deskripsi ?></td>
-											<td>Rp. <?= number_format($value->harga_gudang)  ?></td>
+											<td>Rp. <?= number_format($value->harga_gudang)  ?> / <?= $value->satuan ?></td>
 											<td><?= $value->stok_gudang ?></td>
 
 											<td class="text-center"> <a href="<?= base_url('Admin/cBarang/delete/' . $value->id_jenis) ?>" class="btn btn-app">

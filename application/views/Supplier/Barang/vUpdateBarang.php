@@ -84,6 +84,13 @@
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
+										<label for="exampleInputEmail1">Satuan Barang</label>
+										<input type="text" value="<?= $barang->satuan ?>" name="satuan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Satuan Barang">
+										<?= form_error('satuan', '<small class="text-danger">', '</small>') ?>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="form-group">
 										<label for="exampleInputEmail1">Gambar</label><br>
 										<img style="width: 150px;" src="<?= base_url('asset/foto-produk/' . $barang->gambar) ?>">
 										<input type="file" name="gambar" class="form-control" id="exampleInputEmail1">

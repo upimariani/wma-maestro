@@ -19,7 +19,7 @@
 			?>
 				<div class="callout callout-success">
 					<h5>Sukses!</h5>
-					<p><?= $this->session->userdata('success') ?></p>
+					<p><?= $this->session->userdata('success') ?> <?= $this->session->userdata('username') ?></p>
 				</div>
 			<?php
 			}
@@ -131,14 +131,22 @@
 										</div>
 									</div>
 								</div>
-								<div class="card-footer">
-									<div class="text-right">
+								<form action="<?= base_url('Reseller/cKatalog/add_to_cart/' . $value->id_jenis) ?>" method="POST">
+									<div class="card-footer">
+										<div class="text-right">
+											<div class="row">
+												<div class="col-lg-6"><input type="number" min="1" name="qty" placeholder="Masukkan Quantity Pemesanan" class="form-control" required></div>
+												<div class="col-lg-6">
+													<button type="submit" class="btn btn-sm btn-success btn-block">
+														<i class="fas fa-shopping-cart"></i> Add To Cart
+													</button>
+												</div>
+											</div>
 
-										<a href="<?= base_url('Reseller/cKatalog/add_to_cart/' . $value->id_jenis) ?>" class="btn btn-sm btn-success">
-											<i class="fas fa-shopping-cart"></i> Add To Cart
-										</a>
+
+										</div>
 									</div>
-								</div>
+								</form>
 							</div>
 						</div>
 					<?php

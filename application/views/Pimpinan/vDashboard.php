@@ -35,7 +35,7 @@
 						</div>
 						<div class="card-body">
 							<?php
-							echo form_open('Pimpinan/cLaporan_transaksi/lap_harian_transaksi') ?>
+							echo form_open('Pimpinan/cDashboard/lap_harian_transaksi') ?>
 							<div class="row">
 								<div class="col-sm-4">
 									<div class="form-group">
@@ -99,7 +99,7 @@
 						</div>
 						<div class="card-body">
 							<?php
-							echo form_open('Pimpinan/cLaporan_transaksi/lap_bulanan_transaksi') ?>
+							echo form_open('Pimpinan/cDashboard/lap_bulanan_transaksi') ?>
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
@@ -149,7 +149,7 @@
 						</div>
 						<div class="card-body">
 							<?php
-							echo form_open('Pimpinan/cLaporan_transaksi/lap_tahunan_transaksi') ?>
+							echo form_open('Pimpinan/cDashboard/lap_tahunan_transaksi') ?>
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="form-group">

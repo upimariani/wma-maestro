@@ -28,7 +28,7 @@ class cKatalog extends CI_Controller
 			'id' => $barang->id_jenis,
 			'name' =>  $barang->nama_barang,
 			'price' =>  $barang->harga_gudang,
-			'qty' => '1',
+			'qty' => $this->input->post('qty'),
 			'stok' =>  $barang->stok_gudang,
 		);
 		$this->cart->insert($data);
