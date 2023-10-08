@@ -56,6 +56,16 @@ class cDashboard extends CI_Controller
 			$pdf->Cell(50, 6, $value->nama_supplier, 1, 0);
 			$pdf->Cell(40, 6, 'Rp.' . number_format($value->total_bayar), 1, 1);
 		}
+
+		$pdf->SetFont('Times', 'B', 10);
+		$pdf->Cell(20, 7, '', 0, 1);
+		$pdf->Cell(130, 6, '', 0, 0, 'C');
+		$pdf->Cell(40, 6, 'Mengetahui', 0, 1);
+		$pdf->Cell(130, 6, '', 0, 0, 'C');
+		$pdf->Cell(40, 6, 'Pimpinan CV. Maestro', 0, 1);
+		$pdf->Cell(60, 10, '', 0, 1);
+		$pdf->Cell(130, 6, '', 0, 0, 'C');
+		$pdf->Cell(40, 6, '(..............................)', 0, 1);
 		$pdf->Output();
 
 		// $data = array(
@@ -106,6 +116,16 @@ class cDashboard extends CI_Controller
 			$pdf->Cell(50, 6, $value->nama_supplier, 1, 0);
 			$pdf->Cell(40, 6, 'Rp.' . number_format($value->total_bayar), 1, 1);
 		}
+
+		$pdf->SetFont('Times', 'B', 10);
+		$pdf->Cell(20, 7, '', 0, 1);
+		$pdf->Cell(130, 6, '', 0, 0, 'C');
+		$pdf->Cell(40, 6, 'Mengetahui', 0, 1);
+		$pdf->Cell(130, 6, '', 0, 0, 'C');
+		$pdf->Cell(40, 6, 'Pimpinan CV. Maestro', 0, 1);
+		$pdf->Cell(60, 10, '', 0, 1);
+		$pdf->Cell(130, 6, '', 0, 0, 'C');
+		$pdf->Cell(40, 6, '(..............................)', 0, 1);
 		$pdf->Output();
 
 		// $data = array(
@@ -154,6 +174,16 @@ class cDashboard extends CI_Controller
 			$pdf->Cell(50, 6, $value->nama_supplier, 1, 0);
 			$pdf->Cell(40, 6, 'Rp.' . number_format($value->total_bayar), 1, 1);
 		}
+
+		$pdf->SetFont('Times', 'B', 10);
+		$pdf->Cell(20, 7, '', 0, 1);
+		$pdf->Cell(130, 6, '', 0, 0, 'C');
+		$pdf->Cell(40, 6, 'Mengetahui', 0, 1);
+		$pdf->Cell(130, 6, '', 0, 0, 'C');
+		$pdf->Cell(40, 6, 'Pimpinan CV. Maestro', 0, 1);
+		$pdf->Cell(60, 10, '', 0, 1);
+		$pdf->Cell(130, 6, '', 0, 0, 'C');
+		$pdf->Cell(40, 6, '(..............................)', 0, 1);
 		$pdf->Output();
 
 		// $data = array(

@@ -23,6 +23,7 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
+			<img style="width: 200px; " src="<?= base_url('asset/logo.png') ?>"><br>
 			<a href="../../index2.html"><b>LOGIN</b>SUPPLIER</a>
 		</div>
 

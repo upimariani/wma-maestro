@@ -28,7 +28,7 @@
 					<a href="<?= base_url('Pimpinan/cDashboard') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Pimpinan' && $this->uri->segment(2) == 'cDashboard') {
 																							echo 'active';
 																						}  ?>">
-						<i class="nav-icon fas fa-shopping-cart"></i>
+						<i class="nav-icon fas fa-book-open"></i>
 						<p>Laporan</p>
 					</a>
 				</li>
@@ -36,7 +36,7 @@
 					<a href="<?= base_url('Pimpinan/cPeramalan') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'Pimpinan' && $this->uri->segment(2) == 'cPeramalan') {
 																							echo 'active';
 																						}  ?>">
-						<i class="nav-icon fas fa-tag"></i>
+						<i class="nav-icon fas fa-chart-line"></i>
 						<p>Peramalan</p>
 					</a>
 				</li>
