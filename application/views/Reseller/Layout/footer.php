@@ -1,10 +1,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
   	<strong>CV. MAESTRO</strong>
-
-
   </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
   	<!-- Control sidebar content goes here -->
@@ -63,7 +60,7 @@
   			"responsive": true,
   			"autoWidth": false,
   		});
-  		$(".example1").DataTable({
+  		$('.example1').DataTable({
   			"responsive": true,
   			"autoWidth": false,
   		});

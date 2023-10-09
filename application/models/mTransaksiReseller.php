@@ -14,7 +14,7 @@ class mTransaksiReseller extends CI_Model
 	}
 	public function detail_transaksi($id)
 	{
-		$data['transaksi'] = $this->db->query("SELECT * FROM `po_barang` WHERE id_po_bar='" . $id . "'")->row();
+		$data['transaksi'] = $this->db->query("SELECT * FROM `po_barang` JOIN reseller ON reseller.id_reseller=po_barang.id_reseller  WHERE id_po_bar='" . $id . "'")->row();
 		$data['detail'] = $this->db->query("SELECT * FROM `po_barang` JOIN po_dbarang ON po_barang.id_po_bar=po_dbarang.id_po_bar JOIN jenis_barang ON po_dbarang.id_jenis=jenis_barang.id_jenis WHERE po_barang.id_po_bar='" . $id . "'")->result();
 		return $data;
 	}

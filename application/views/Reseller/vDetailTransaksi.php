@@ -23,7 +23,8 @@
 				<div class="col-12">
 					<div class="callout callout-info">
 						<h5><i class="fas fa-info"></i> Note:</h5>
-						This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+						This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.<br>
+						<a href="<?= base_url('Reseller/cTransaksi/cetak/' . $transaksi['transaksi']->id_po_bar) ?>" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
 					</div>
 
 					<?php
@@ -42,7 +43,7 @@
 						<div class="row">
 							<div class="col-12">
 								<h4>
-									<i class="fas fa-globe"></i> AdminLTE, Inc.
+									<i class="fas fa-globe"></i> Invoice
 									<small class="float-right">Date: <?= date('Y-m-d') ?></small>
 								</h4>
 							</div>
@@ -103,6 +104,7 @@
 
 						<div class="row">
 							<div class="col-6">
+
 								<?php
 								if ($transaksi['transaksi']->stat_bay_bar == '0') {
 								?>
@@ -138,21 +140,16 @@
 							<!-- /.col -->
 							<div class="row no-print">
 								<div class="col-12">
-									<a href="invoice-print.html" target="_blank" class="btn btn-default mt-5"><i class="fas fa-print"></i> Print</a>
 
 									<?php
 									if ($transaksi['transaksi']->stat_order_bar == '3') {
 									?>
 										<a href="<?= base_url('Reseller/cTransaksi/pesanan_diterima/' . $transaksi['transaksi']->id_po_bar) ?>" class="mt-5 btn btn-success"><i class="fas fa-pen-alt"></i> Pesanan Diterima</a>
-
 									<?php
 									}
 									?>
 								</div>
 							</div>
-							<!-- /.row -->
-
-
 						</div>
 						<!-- /.invoice -->
 					</div><!-- /.col -->

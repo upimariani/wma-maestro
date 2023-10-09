@@ -36,7 +36,7 @@
 	<div class="wrapper">
 
 		<!-- Navbar -->
-		<nav class="main-header navbar navbar-expand navbar-warning navbar-light">
+		<nav class="main-header navbar navbar-expand navbar-info navbar-light">
 			<!-- Left navbar links -->
 			<ul class="navbar-nav">
 				<li class="nav-item">

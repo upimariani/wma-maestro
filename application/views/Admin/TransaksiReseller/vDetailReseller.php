@@ -110,7 +110,9 @@
 								<?php
 								}
 								?>
-								<a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+
+								<button type="button" onclick="window.print()" class="btn btn-default"><i class="fas fa-print"></i> Print</button>
+
 								<?php
 								if ($transaksi['transaksi']->stat_order_bar == '1') {
 								?>
@@ -142,7 +144,7 @@
 								</div>
 							</div>
 							<!-- /.col -->
-							
+
 							<!-- /.row -->
 
 

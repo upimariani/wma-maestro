@@ -134,7 +134,7 @@
 						<!-- this row will not appear when printing -->
 						<div class="row no-print">
 							<div class="col-12">
-								<a href="invoice-print.html" target="_blank" class="btn btn-default mt-5"><i class="fas fa-print"></i> Print</a>
+								<button type="button" onclick="window.print()" class="btn btn-default mt-5"><i class="fas fa-print"></i> Print</button>
 
 								<?php
 								if ($transaksi['transaksi']->status_order == '3') {

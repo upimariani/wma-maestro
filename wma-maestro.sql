@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Okt 2023 pada 00.33
+-- Waktu pembuatan: 09 Okt 2023 pada 02.35
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -60,8 +60,8 @@ INSERT INTO `jenis_barang` (`id_jenis`, `id_kategori`, `id_supplier`, `nama_bara
 (9, 4, 1, 'Dye Base 1 Dus', 'Tinta dye merupakan tinta yang paling sering digunakan untuk keperluan rumahan atau kantoran untuk mencetak sebuah dokumen', 'dus', '305000', 1000, '305000', 1000, 30, 'dye.jpeg', 2),
 (10, 4, 1, 'Pigment 1 Dus', 'Tinta pigment biasa digunakan untuk mencetak dokumen penting seperti ijazah, sertifikat, dll.', 'dus', '325000', 1000, '325000', 1000, 30, 'pigment.jpg', 2),
 (11, 4, 1, 'Solvent 1 Dus', 'Tinta solvent merupakan tinta yang kebanyakan dipakai untuk keperluan cetak banner', 'dus', '560000', 1000, '560000', 1000, 30, 'solvent.jpg', 2),
-(12, 1, 0, 'Undangan', 'Cetak undangan pernikahan, khitanan, syukuran', 'pcs', NULL, NULL, '750', 1000, 0, 'undangan.jpg', 1),
-(13, 1, 0, 'Buku Yasin', 'Cetak buku yasin', 'pcs', NULL, NULL, '6000', 1000, 0, 'yasin.jpg', 1),
+(12, 1, 0, 'Undangan', 'Cetak undangan pernikahan, khitanan, syukuran', 'pcs', NULL, NULL, '750', 998, 0, 'undangan.jpg', 1),
+(13, 1, 0, 'Buku Yasin', 'Cetak buku yasin', 'pcs', NULL, NULL, '6000', 995, 0, 'yasin.jpg', 1),
 (14, 1, 0, 'Brosur', 'Cetak brosur, iklan dan majalah', 'pcs', NULL, NULL, '1200', 10000, 0, 'brosur.jpg', 1),
 (15, 1, 0, 'Banner', 'Cetak banner acara', 'meter', NULL, NULL, '25000', 10000, 0, 'banner.jpg', 1);
 
@@ -108,7 +108,8 @@ CREATE TABLE `po_barang` (
 --
 
 INSERT INTO `po_barang` (`id_po_bar`, `id_reseller`, `tgl_tran_bar`, `tot_bay_bar`, `stat_bay_bar`, `bukti_bay_bar`, `stat_order_bar`, `alamat_kirim_bar`) VALUES
-(1, 1, '2023-09-16', '10000', 0, '0', 0, 'Kuningan, Jawa Barat');
+(1, 1, '2023-09-16', '10000', 1, 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-11.jpg', 1, 'Kuningan, Jawa Barat'),
+(2, 1, '2023-10-09', '31500', 0, '0', 0, 'Kuningan, Jawa Barat');
 
 -- --------------------------------------------------------
 
@@ -383,7 +384,9 @@ CREATE TABLE `po_dbarang` (
 --
 
 INSERT INTO `po_dbarang` (`id_po_dbar`, `id_po_bar`, `id_jenis`, `qty`) VALUES
-(1, 1, 12, 1);
+(1, 1, 12, 1),
+(2, 2, 12, 2),
+(3, 2, 13, 5);
 
 -- --------------------------------------------------------
 
@@ -783,7 +786,7 @@ ALTER TABLE `kategori_barang`
 -- AUTO_INCREMENT untuk tabel `po_barang`
 --
 ALTER TABLE `po_barang`
-  MODIFY `id_po_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_po_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `po_bb`
@@ -795,7 +798,7 @@ ALTER TABLE `po_bb`
 -- AUTO_INCREMENT untuk tabel `po_dbarang`
 --
 ALTER TABLE `po_dbarang`
-  MODIFY `id_po_dbar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_po_dbar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `po_dbb`
