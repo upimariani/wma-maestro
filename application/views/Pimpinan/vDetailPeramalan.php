@@ -35,12 +35,14 @@
 										<th>Periode</th>
 										<th>Permintaan</th>
 										<th style="width: 40px">Forecast</th>
+										<th>Percentage Error (PE)</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									$no = 1;
 									foreach ($periode as $key => $value) {
+
 									?>
 										<tr>
 											<td><?= $no++ ?>.</td>
@@ -76,22 +78,41 @@
 											$forecast = $this->db->query("SELECT SUM(qty) as qty, id_jenis, MONTH(tgl_transaksi) as bulan FROM `po_bb` JOIN po_dbb ON po_bb.id_po_bb=po_dbb.id_po_dbb WHERE id_jenis='$value->id_jenis' AND MONTH(tgl_transaksi) < '$value->bulan' GROUP BY id_jenis, MONTH(tgl_transaksi) ORDER BY MONTH(tgl_transaksi) DESC LIMIT 3")->result();
 											$hasil = 0;
 											$bobot = 3;
+
 											foreach ($forecast as $key => $item) {
 												$hasil += (($item->qty * $bobot--) / 6);
 											}
 											if ($value->bulan > 3) {
 											?>
 												<td><span class="badge bg-danger"><?= round($hasil) ?> <?= $value->satuan ?></span></td>
+												<?php
+												$pe = round((($value->qty - round($hasil)) / $value->qty) * 100, 2);
+												$jml_pe[] = $pe;
+												?>
+												<td><?= $pe ?>%</td>
 											<?php
 											}
 											?>
-
 										</tr>
 									<?php
 									}
 									?>
-
 								</tbody>
+								<tfoot>
+									<?php
+									$total = 0;
+									for ($pe = 0; $pe  < sizeof($jml_pe); $pe++) {
+										$total += $jml_pe[$pe];
+									}
+									?>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td><strong>MAPE %</strong></td>
+										<td><?= round($total / 12) ?></td>
+									</tr>
+								</tfoot>
 							</table>
 						</div>
 						<!-- /.card-body -->

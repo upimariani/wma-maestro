@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Okt 2023 pada 02.35
+-- Waktu pembuatan: 11 Okt 2023 pada 06.43
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -792,7 +792,7 @@ ALTER TABLE `po_barang`
 -- AUTO_INCREMENT untuk tabel `po_bb`
 --
 ALTER TABLE `po_bb`
-  MODIFY `id_po_bb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=742;
+  MODIFY `id_po_bb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=622;
 
 --
 -- AUTO_INCREMENT untuk tabel `po_dbarang`
