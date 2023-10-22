@@ -21,12 +21,7 @@
 	<section class="content">
 		<div class="container-fluid">
 			<!-- Small boxes (Stat box) -->
-			<div class="row">
-				<div class="col-12 table-responsive">
-					<canvas id="laporan" height="100"></canvas>
-				</div>
-				<!-- /.col -->
-			</div>
+
 			<div class="row">
 				<div class="col-md-4">
 					<div class="card card-light">
@@ -176,6 +171,107 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-header">
+							<h3 class="card-title">Informasi Menunggu Konfirmasi Transaksi Bahan Baku</h3>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body">
+							<?php
+							if ($this->session->userdata('success')) {
+							?>
+								<div class="callout callout-success">
+									<h5>Sukses!</h5>
+									<p><?= $this->session->userdata('success') ?></p>
+								</div>
+							<?php
+							}
+							?>
+							<table id="example1" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>Nama Supplier</th>
+										<th>Tanggal Transaksi</th>
+										<th>Total Bayar</th>
+										<th>Alamat Pengiriman</th>
+										<th>Status Pesanan</th>
+										<th class="text-center">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+									$no = 1;
+									foreach ($transaksi as $key => $value) {
+										if ($value->status_order == '9') {
+
+									?>
+											<tr>
+												<td><?= $no++ ?></td>
+												<td><?= $value->nama_supplier ?></td>
+												<td><?= $value->tgl_transaksi ?></td>
+												<td>Rp. <?= number_format($value->total_bayar)  ?></td>
+												<td><?= $value->alamat_pengiriman ?></td>
+												<td><?php
+													if ($value->status_order == '0') {
+													?>
+														<span class="badge badge-danger">Belum Bayar</span>
+													<?php
+													} else if ($value->status_order == '1') {
+													?>
+														<span class="badge badge-warning">Menunggu Konfirmasi</span>
+													<?php
+													} else if ($value->status_order == '2') {
+													?>
+														<span class="badge badge-info">Pesanan Diproses</span>
+													<?php
+													} else if ($value->status_order == '3') {
+													?>
+														<span class="badge badge-primary">Pesanan Dikirim</span>
+													<?php
+													} else if ($value->status_order == '4') {
+													?>
+														<span class="badge badge-success">Selesai</span>
+													<?php
+													} else {
+													?>
+														<span class="badge badge-success">Menungu Konfirmasi Pemilik</span>
+													<?php
+													}
+													?>
+												</td>
+
+												<td class="text-center"> <a href="<?= base_url('Pimpinan/cDashboard/detail_transaksi/' . $value->id_po_bb) ?>" class="btn btn-app">
+														<i class="fas fa-info"></i> Detail Transaksi
+													</a> </td>
+											</tr>
+									<?php
+										}
+									}
+									?>
+								</tbody>
+								<tfoot>
+
+									<tr>
+										<th>No</th>
+										<th>Nama Supplier</th>
+										<th>Tanggal Transaksi</th>
+										<th>Total Bayar</th>
+										<th>Alamat Pengiriman</th>
+										<th>Status Pesanan</th>
+										<th class="text-center">Action</th>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<!-- /.card-body -->
+					</div>
+					<!-- /.card -->
+				</div>
+				<!-- /.col -->
 			</div>
 		</div>
 </div>

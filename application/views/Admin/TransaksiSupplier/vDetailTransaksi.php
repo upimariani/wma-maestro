@@ -96,7 +96,7 @@
 							<!-- accepted payments column -->
 							<div class="col-6">
 								<?php
-								if ($transaksi['transaksi']->stat_bayar == '0') {
+								if ($transaksi['transaksi']->stat_bayar == '0' && $transaksi['transaksi']->status_order != '9') {
 								?>
 									<?php echo form_open_multipart('Admin/cTransaksi/bayar/' . $transaksi['transaksi']->id_po_bb); ?>
 									<label>Pembayaran</label>

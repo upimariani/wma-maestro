@@ -21,7 +21,7 @@
 	<section class="content">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<div class="card">
 						<div class="card-header">
 							<h3 class="card-title">Informasi Peramalan Barang</h3>
@@ -34,8 +34,10 @@
 										<th style="width: 10px">#</th>
 										<th>Periode</th>
 										<th>Permintaan</th>
+										<th>Proses Analisis Forecast</th>
 										<th style="width: 40px">Forecast</th>
 										<th>Percentage Error (PE)</th>
+
 									</tr>
 								</thead>
 								<tbody>
@@ -79,17 +81,26 @@
 											$hasil = 0;
 											$bobot = 3;
 
-											foreach ($forecast as $key => $item) {
-												$hasil += (($item->qty * $bobot--) / 6);
-											}
+
 											if ($value->bulan > 3) {
 											?>
-												<td><span class="badge bg-danger"><?= round($hasil) ?> <?= $value->satuan ?></span></td>
+												<td>
+													<?php
+													foreach ($forecast as $key => $item) {
+														$hasil += (($item->qty * $bobot--));
+													}
+													$hasil_forecast = $hasil / 6;
+													echo $hasil . '/ 6';
+													?>
+												</td>
+												<td><span class="badge bg-danger"><?= round($hasil_forecast) ?> <?= $value->satuan ?></span></td>
+
 												<?php
 												$pe = round((($value->qty - round($hasil)) / $value->qty) * 100, 2);
 												$jml_pe[] = $pe;
 												?>
 												<td><?= $pe ?>%</td>
+
 											<?php
 											}
 											?>

@@ -29,7 +29,7 @@
 																							echo 'active';
 																						}  ?>">
 						<i class="nav-icon fas fa-book-open"></i>
-						<p>Laporan</p>
+						<p>Transaksi Bahan Baku</p>
 					</a>
 				</li>
 				<li class="nav-item">

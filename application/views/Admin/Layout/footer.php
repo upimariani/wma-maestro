@@ -60,6 +60,7 @@
   			"responsive": true,
   			"autoWidth": false,
   		});
+
   		$('#example2').DataTable({
   			"responsive": true,
   			"autoWidth": false,

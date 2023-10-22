@@ -78,7 +78,7 @@ class cTransaksi extends CI_Controller
 			'total_bayar' => $this->cart->total(),
 			'stat_bayar' => '0',
 			'bukti_bayar' => '0',
-			'status_order' => '0',
+			'status_order' => '9',
 			'alamat_pengiriman' => $this->input->post('alamat')
 		);
 		$this->mTransaksi->insert_po_bb($data);

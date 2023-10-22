@@ -82,7 +82,10 @@
 						<div class="card-header p-0 pt-1">
 							<ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
 								<li class="nav-item">
-									<a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Belum Bayar</a>
+									<a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Menunggu Konfirmasi Pemilik</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="custom-tabs-one-abc-tab" data-toggle="pill" href="#custom-tabs-one-abc" role="tab" aria-controls="custom-tabs-one-abc" aria-selected="true">Belum Bayar</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Menunggu Konfirmasi</a>
@@ -101,6 +104,93 @@
 						<div class="card-body">
 							<div class="tab-content" id="custom-tabs-one-tabContent">
 								<div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+									<div class="card">
+										<div class="card-header">
+											<h3 class="card-title">Informasi Transaksi Menunggu Konfirmasi Pemilik</h3>
+										</div>
+										<!-- /.card-header -->
+										<div class="card-body">
+											<table class="example1 table table-bordered table-striped">
+												<thead>
+													<tr>
+														<th>No</th>
+														<th>Nama Supplier</th>
+														<th>Tanggal Transaksi</th>
+														<th>Total Bayar</th>
+														<th>Alamat Pengiriman</th>
+														<th>Status Pesanan</th>
+														<th class="text-center">Action</th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php
+													$no = 1;
+													foreach ($transaksi as $key => $value) {
+														if ($value->status_order == '9') {
+
+													?>
+															<tr>
+																<td><?= $no++ ?></td>
+																<td><?= $value->nama_supplier ?></td>
+																<td><?= $value->tgl_transaksi ?></td>
+																<td>Rp. <?= number_format($value->total_bayar)  ?></td>
+																<td><?= $value->alamat_pengiriman ?></td>
+																<td><?php
+																	if ($value->status_order == '0') {
+																	?>
+																		<span class="badge badge-danger">Belum Bayar</span>
+																	<?php
+																	} else if ($value->status_order == '1') {
+																	?>
+																		<span class="badge badge-warning">Menunggu Konfirmasi</span>
+																	<?php
+																	} else if ($value->status_order == '2') {
+																	?>
+																		<span class="badge badge-info">Pesanan Diproses</span>
+																	<?php
+																	} else if ($value->status_order == '3') {
+																	?>
+																		<span class="badge badge-primary">Pesanan Dikirim</span>
+																	<?php
+																	} else if ($value->status_order == '4') {
+																	?>
+																		<span class="badge badge-success">Selesai</span>
+																	<?php
+																	} else {
+																	?>
+																		<span class="badge badge-success">Menungu Konfirmasi Pemilik</span>
+																	<?php
+																	}
+																	?>
+																</td>
+
+																<td class="text-center"> <a href="<?= base_url('Admin/cTransaksi/detail_transaksi/' . $value->id_po_bb) ?>" class="btn btn-app">
+																		<i class="fas fa-info"></i> Detail Transaksi
+																	</a> </td>
+															</tr>
+													<?php
+														}
+													}
+													?>
+												</tbody>
+												<tfoot>
+
+													<tr>
+														<th>No</th>
+														<th>Nama Supplier</th>
+														<th>Tanggal Transaksi</th>
+														<th>Total Bayar</th>
+														<th>Alamat Pengiriman</th>
+														<th>Status Pesanan</th>
+														<th class="text-center">Action</th>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+										<!-- /.card-body -->
+									</div>
+								</div>
+								<div class="tab-pane fade show" id="custom-tabs-one-abc" role="tabpanel" aria-labelledby="custom-tabs-one-abc-tab">
 									<div class="card">
 										<div class="card-header">
 											<h3 class="card-title">Informasi Transaksi Belum Bayar</h3>
@@ -152,6 +242,10 @@
 																	} else if ($value->status_order == '4') {
 																	?>
 																		<span class="badge badge-success">Selesai</span>
+																	<?php
+																	} else {
+																	?>
+																		<span class="badge badge-success">Menungu Konfirmasi Pemilik</span>
 																	<?php
 																	}
 																	?>

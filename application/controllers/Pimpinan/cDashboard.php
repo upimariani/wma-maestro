@@ -8,14 +8,38 @@ class cDashboard extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('mLaporan');
+		$this->load->model('mTransaksi');
 	}
 
 	public function index()
 	{
+		$data = array(
+			'transaksi' => $this->mTransaksi->transaksi_admin()
+		);
 		$this->load->view('Pimpinan/Layout/head');
 		$this->load->view('Pimpinan/Layout/aside');
-		$this->load->view('Pimpinan/vDashboard');
+		$this->load->view('Pimpinan/vDashboard', $data);
 		$this->load->view('Pimpinan/Layout/footer');
+	}
+	public function detail_transaksi($id)
+	{
+		$data = array(
+			'transaksi' => $this->mTransaksi->detail_transaksi($id)
+		);
+		$this->load->view('Pimpinan/Layout/head');
+		$this->load->view('Pimpinan/Layout/aside');
+		$this->load->view('Pimpinan/vDetailTransaksi', $data);
+		$this->load->view('Pimpinan/Layout/footer');
+	}
+	public function approve_pesanan($id)
+	{
+		$status = array(
+			'status_order' => '0'
+		);
+		$this->db->where('id_po_bb', $id);
+		$this->db->update('po_bb', $status);
+		$this->session->set_flashdata('success', 'Data Transaksi Berhasil Diapproved!');
+		redirect('Pimpinan/cDashboard', 'refresh');
 	}
 	public function lap_harian_transaksi()
 	{

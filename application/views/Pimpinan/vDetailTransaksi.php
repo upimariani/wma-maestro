@@ -5,43 +5,35 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Detail Transaksi</h1>
+					<h1>Detail Transaksi Supplier</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">Detail Transaksi</li>
+						<li class="breadcrumb-item active">Detail Transaksi Supplier</li>
 					</ol>
 				</div>
 			</div>
 		</div><!-- /.container-fluid -->
 	</section>
+
 	<section class="content">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12">
 					<div class="callout callout-info">
 						<h5><i class="fas fa-info"></i> Note:</h5>
-						This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.<br>
-						<a href="<?= base_url('Reseller/cTransaksi/cetak/' . $transaksi['transaksi']->id_po_bar) ?>" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+						This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
 					</div>
-					<?php
-					if ($this->session->userdata('success')) {
-					?>
-						<div class="callout callout-success">
-							<h5>Sukses!</h5>
-							<p><?= $this->session->userdata('success') ?></p>
-						</div>
-					<?php
-					}
-					?>
+
+
 					<!-- Main content -->
 					<div class="invoice p-3 mb-3">
 						<!-- title row -->
 						<div class="row">
 							<div class="col-12">
 								<h4>
-									<i class="fas fa-globe"></i> Invoice
+									<i class="fas fa-globe"></i> AdminLTE, Inc.
 									<small class="float-right">Date: <?= date('Y-m-d') ?></small>
 								</h4>
 							</div>
@@ -52,14 +44,17 @@
 							<div class="col-sm-4 invoice-col">
 								From
 								<address>
-									<strong>Reseller, Inc.</strong><br>
-									<?= $transaksi['transaksi']->alamat_kirim_bar ?><br>
+									<strong>Admin, Inc.</strong><br>
+									<?= $transaksi['transaksi']->alamat_pengiriman ?><br>
+
 								</address>
 							</div>
 							<!-- /.col -->
+
 							<!-- /.col -->
 						</div>
 						<!-- /.row -->
+
 						<!-- Table row -->
 						<div class="row">
 							<div class="col-12 table-responsive">
@@ -82,39 +77,27 @@
 												<td><?= $no++ ?></td>
 												<td><?= $value->qty ?></td>
 												<td><?= $value->nama_barang ?></td>
-												<td>Rp. <?= number_format($value->harga_gudang)  ?></td>
-												<td>Rp. <?= number_format($value->harga_gudang * $value->qty)  ?></td>
+												<td>Rp. <?= number_format($value->harga_supplier)  ?></td>
+												<td>Rp. <?= number_format($value->harga_supplier * $value->qty)  ?></td>
 											</tr>
 										<?php
 										}
 										?>
+
+
 									</tbody>
 								</table>
 							</div>
 							<!-- /.col -->
 						</div>
 						<!-- /.row -->
-						<div class="row">
-							<div class="col-6">
-								<?php
-								if ($transaksi['transaksi']->stat_bay_bar == '0') {
-								?>
-									<?php echo form_open_multipart('Reseller/cTransaksi/bayar/' . $transaksi['transaksi']->id_po_bar); ?>
-									<label>Pembayaran</label>
-									<input type="file" name="bayar" class="form-control">
-									<button type="submit" class="btn btn-success mt-3"><i class="far fa-credit-card"></i> Submit
-										Payment
-									</button>
-									</form>
-								<?php
-								} else {
-								?>
-									<img class="mb-5" style="width: 150px;" src="<?= base_url('asset/pembayaran/' . $transaksi['transaksi']->bukti_bay_bar)  ?>">
-								<?php
-								}
-								?>
-							</div>
 
+						<div class="row">
+							<!-- accepted payments column -->
+							<div class="col-6">
+
+
+							</div>
 							<!-- /.col -->
 							<div class="col-6">
 								<p class="lead">Amount Due <?= date('Y-m-d') ?></p>
@@ -123,29 +106,35 @@
 									<table class="table">
 										<tr>
 											<th>Total:</th>
-											<td>Rp. <?= number_format($transaksi['transaksi']->tot_bay_bar)  ?></td>
+											<td>Rp. <?= number_format($transaksi['transaksi']->total_bayar)  ?></td>
 										</tr>
 									</table>
 								</div>
 							</div>
 							<!-- /.col -->
-							<div class="row no-print">
-								<div class="col-12">
+						</div>
+						<!-- /.row -->
 
-									<?php
-									if ($transaksi['transaksi']->stat_order_bar == '3') {
-									?>
-										<a href="<?= base_url('Reseller/cTransaksi/pesanan_diterima/' . $transaksi['transaksi']->id_po_bar) ?>" class="mt-5 btn btn-success"><i class="fas fa-pen-alt"></i> Pesanan Diterima</a>
-									<?php
-									}
-									?>
-								</div>
+						<!-- this row will not appear when printing -->
+						<div class="row no-print">
+							<div class="col-12">
+								<button type="button" onclick="window.print()" class="btn btn-default mt-5"><i class="fas fa-print"></i> Print</button>
+
+								<?php
+								if ($transaksi['transaksi']->status_order == '9') {
+								?>
+									<a href="<?= base_url('Pimpinan/cDashboard/approve_pesanan/' . $transaksi['transaksi']->id_po_bb) ?>" class="mt-5 btn btn-warning"><i class="fas fa-pen-alt"></i> Approved Pesanan</a>
+
+								<?php
+								}
+								?>
 							</div>
 						</div>
-						<!-- /.invoice -->
-					</div><!-- /.col -->
-				</div><!-- /.row -->
-			</div><!-- /.container-fluid -->
+					</div>
+					<!-- /.invoice -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container-fluid -->
 	</section>
 	<!-- /.content -->
 </div>
