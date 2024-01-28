@@ -96,6 +96,9 @@
 
   		$(".stok").html($(this).find(':selected').attr('data-stok'));
   		$(".stok").val($(this).find(':selected').attr('data-stok'));
+
+  		$(".rekomendasi").html($(this).find(':selected').attr('data-rekomendasi'));
+  		$(".rekomendasi").val($(this).find(':selected').attr('data-rekomendasi'));
   	});
   </script>
   </body>

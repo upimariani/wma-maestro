@@ -23,7 +23,8 @@ class cPeramalan extends CI_Controller
 	public function detail_peramalan($id_bb)
 	{
 		$data = array(
-			'periode' => $this->mPeramalan->periode($id_bb)
+			'periode' => $this->mPeramalan->periode($id_bb),
+			'id_jenis' => $id_bb
 		);
 		$this->load->view('Pimpinan/Layout/head');
 		$this->load->view('Pimpinan/Layout/aside');

@@ -82,6 +82,7 @@
 											$bobot = 3;
 
 
+											$rekomendasi = 0;
 											if ($value->bulan > 3) {
 											?>
 												<td>
@@ -91,22 +92,31 @@
 													}
 													$hasil_forecast = $hasil / 6;
 													echo $hasil . '/ 6';
+													$rekomendasi = $hasil_forecast;
 													?>
 												</td>
 												<td><span class="badge bg-danger"><?= round($hasil_forecast) ?> <?= $value->satuan ?></span></td>
 
 												<?php
-												$pe = round((($value->qty - round($hasil)) / $value->qty) * 100, 2);
+												$pe = round((($value->qty - round($hasil_forecast)) / $value->qty) * 100, 2);
 												$jml_pe[] = $pe;
 												?>
 												<td><?= $pe ?>%</td>
 
 											<?php
 											}
+
 											?>
+
 										</tr>
 									<?php
 									}
+									//update stok rekomendasi
+									$data = array(
+										'stok_minimal' => $rekomendasi
+									);
+									$this->db->where('id_jenis', $id_jenis);
+									$this->db->update('jenis_barang', $data);
 									?>
 								</tbody>
 								<tfoot>

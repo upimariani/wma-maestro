@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2023 at 04:42 PM
+-- Generation Time: Oct 23, 2023 at 02:08 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -49,12 +49,12 @@ CREATE TABLE `jenis_barang` (
 --
 
 INSERT INTO `jenis_barang` (`id_jenis`, `id_kategori`, `id_supplier`, `nama_barang`, `deskripsi`, `satuan`, `harga_supplier`, `stok_supplier`, `harga_gudang`, `stok_gudang`, `stok_minimal`, `gambar`, `type`) VALUES
-(1, 1, 1, 'HVS A4 1 Dus', 'Kertas HVS Multifungsi untuk memenuhi kebutuhan sekolah maupun kantor', 'pcs', '225000', 1000, '', 0, 0, 'hvs.jpg', 2),
-(2, 1, 1, 'Art Carton 100 pcs', 'Permukaan Kilap di kedua sisi dapat dicetak bolak balik (bagian depan dan belakang)', 'pcs', '140000', 1000, '', 0, 0, 'carton.jpg', 2),
-(3, 2, 2, 'Jelly Glue 1 Kg', 'Bahan lem untuk percetakan', 'pcs', '212000', 1000, '', 0, 0, 'jellyglue.jpg', 2),
-(4, 3, 2, 'Flexi 1 Roll', 'Bahan flexi yang lentur dan tidak mudah robek', 'pcs', '1645000', 1000, '', 0, 0, 'flexi.jpg', 2),
-(5, 4, 1, 'Dye Base 1 Dus', 'Tinta dye merupakan tinta yang paling sering digunakan untuk keperluan rumahan atau kantoran untuk mencetak sebuah dokumen', 'pcs', '1250000', 1000, '', 0, 0, 'dye.jpeg', 2),
-(6, 4, 1, 'Solvent 1 Dus', 'Tinta solvent merupakan tinta yang kebanyakan dipakai untuk keperluan cetak banner', 'pcs', '2050000', 1000, '', 0, 0, 'solvent.jpg', 2),
+(1, 1, 1, 'HVS A4 1 Dus', 'Kertas HVS Multifungsi untuk memenuhi kebutuhan sekolah maupun kantor', 'pcs', '225000', 1000, '', 0, 14, 'hvs.jpg', 2),
+(2, 1, 1, 'Art Carton 100 pcs', 'Permukaan Kilap di kedua sisi dapat dicetak bolak balik (bagian depan dan belakang)', 'pcs', '140000', 1000, '', 0, 13, 'carton.jpg', 2),
+(3, 2, 2, 'Jelly Glue 1 Kg', 'Bahan lem untuk percetakan', 'pcs', '212000', 1000, '', 0, 17, 'jellyglue.jpg', 2),
+(4, 3, 2, 'Flexi 1 Roll', 'Bahan flexi yang lentur dan tidak mudah robek', 'pcs', '1645000', 1000, '', 0, 14, 'flexi.jpg', 2),
+(5, 4, 1, 'Dye Base 1 Dus', 'Tinta dye merupakan tinta yang paling sering digunakan untuk keperluan rumahan atau kantoran untuk mencetak sebuah dokumen', 'pcs', '1250000', 1000, '', 0, 17, 'dye.jpeg', 2),
+(6, 4, 1, 'Solvent 1 Dus', 'Tinta solvent merupakan tinta yang kebanyakan dipakai untuk keperluan cetak banner', 'pcs', '2050000', 1000, '', 0, 11, 'solvent.jpg', 2),
 (7, 1, 0, 'Undangan', 'Cetak undangan pernikahan, khitanan, syukuran, dll', 'pcs', '', 0, '750', 1000, 0, 'undangan.jpg', 1),
 (8, 1, 0, 'Buku Yasin', 'Cetak buku yasin', 'pcs', '', 0, '6500', 1000, 0, 'yasin.jpg', 1),
 (9, 1, 0, 'Brosur', 'Cetak brosur iklan, kegiatan, majalah', 'pcs', '', 0, '1500', 1000, 0, 'brosur.jpg', 1),

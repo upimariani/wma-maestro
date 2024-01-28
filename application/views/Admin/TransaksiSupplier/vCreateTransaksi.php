@@ -53,7 +53,7 @@
 												<?php
 												foreach ($bb as $key => $value) {
 												?>
-													<option data-nama="<?= $value->nama_barang ?>" data-harga="<?= $value->harga_supplier ?>" data-stok="<?= $value->stok_supplier ?>" value="<?= $value->id_jenis ?>"><?= $value->nama_barang ?></option>
+													<option data-rekomendasi="<?= $value->stok_minimal ?>" data-nama="<?= $value->nama_barang ?>" data-harga="<?= $value->harga_supplier ?>" data-stok="<?= $value->stok_supplier ?>" value="<?= $value->id_jenis ?>"><?= $value->nama_barang ?></option>
 												<?php
 												}
 												?>
@@ -61,6 +61,7 @@
 											</select>
 										</div>
 									</div>
+
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label for="exampleInputEmail1">Nama Bahan Baku</label>
@@ -85,7 +86,7 @@
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label for="exampleInputPassword1">Quantity Pesan</label>
-											<input type="number" name="qty" class="form-control" id="exampleInputPassword1" required>
+											<input type="number" name="qty" class="rekomendasi form-control" id="exampleInputPassword1" required>
 										</div>
 									</div>
 								</div>
